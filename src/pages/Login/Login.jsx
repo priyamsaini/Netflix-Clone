@@ -22,6 +22,13 @@ const Login = () => {
     setLoading(false);
   };
 
+  const skip = async (event) => {
+    event.preventDefault();
+    setLoading(true);
+    await login("priyam@gmail.com", "123456");
+    setLoading(false);
+  };
+
   return loading ? (
     <div className="login-spinner">
       <img src={netflix_spinner} alt="" />
@@ -80,6 +87,7 @@ const Login = () => {
               <span onClick={() => setSignState("Sign In")}>Sign In Now</span>
             </p>
           )}
+          <button onClick={skip}>Skip</button>
         </div>
       </div>
     </div>
